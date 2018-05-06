@@ -1,0 +1,89 @@
+{
+	"additionalNodes": [ {
+		"children": [],
+		"id": "MOwtxHj7lCZInes0cVNWi0psFlCwZzU7",
+		"nodeType": "roleSplit",
+		"parameters": [ {
+			"name": "mode",
+			"value": "all-success"
+		} ]
+	} ],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"Klexf5KAZnLH8SlKjspb1m2LDjoi9olD": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 237,
+			"y": 11
+		},
+		"MOwtxHj7lCZInes0cVNWi0psFlCwZzU7": {
+			"height": 70,
+			"title": "roleSplit",
+			"width": 202,
+			"x": 198,
+			"y": -101
+		},
+		"rMellRJrfKDUK80ErMlpQsPLtp2tUyrH": {
+			"height": 90,
+			"title": "Common.relativeMove",
+			"width": 446,
+			"x": 458,
+			"y": -72
+		},
+		"shxBiVlCluDgzrDz5iDBxbxjCST6tlcu": {
+			"height": 94,
+			"title": "store",
+			"width": 184,
+			"x": 454,
+			"y": -175
+		}
+	},
+	"roles": [ {
+		"categories": [ "nota_sanchez_aiproject.Commander" ],
+		"name": "Commander"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "shxBiVlCluDgzrDz5iDBxbxjCST6tlcu",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "windData"
+			}, {
+				"name": "value",
+				"value": "map.Wind()"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "rMellRJrfKDUK80ErMlpQsPLtp2tUyrH",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "dist",
+				"value": "{x = windData.normDirX*100 , z = windData.normDirZ*100}"
+			}, {
+				"name": "fight",
+				"value": "false"
+			}, {
+				"name": "scriptName",
+				"value": "Common.relativeMove"
+			} ],
+			"scriptName": "Common.relativeMove"
+		} ],
+		"id": "Klexf5KAZnLH8SlKjspb1m2LDjoi9olD",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}
