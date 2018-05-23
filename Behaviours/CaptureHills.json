@@ -1,0 +1,292 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"3iP6mD59Be7mPJ1JEOGnTssL5kMSZGXT": {
+			"height": 92,
+			"title": "store",
+			"width": 159,
+			"x": 1343,
+			"y": -190
+		},
+		"4qRlX7GmpTbwcBRU4N8xKpyhsF1UWN7N": {
+			"height": 60,
+			"title": "TankBehavior",
+			"width": 170,
+			"x": 758,
+			"y": 72
+		},
+		"69VZH4bCYzwDc0Oa9hefvCNnFjHwG3F9": {
+			"height": 94,
+			"title": "store",
+			"width": 320,
+			"x": 1326,
+			"y": -103
+		},
+		"6E9voIy10lFtUhL6jBPESfXIdz0rzqcw": {
+			"height": 54,
+			"title": "success",
+			"width": 132,
+			"x": 1000,
+			"y": 98
+		},
+		"BzluKjT8qYcT3bsNpTA53x5ntEiski6H": {
+			"height": 92,
+			"title": "nota_sanchez_aiproject.scatter",
+			"width": 279,
+			"x": 1742,
+			"y": 319
+		},
+		"FeagkcKke38h4bje351TwFl97KOIbaSU": {
+			"height": 72,
+			"title": "echo",
+			"width": 210,
+			"x": 1776,
+			"y": 80
+		},
+		"JeACV8JQzpCNujYjPWxKcQzFa0XNaRpn": {
+			"height": 70,
+			"title": "roleSplit",
+			"width": 202,
+			"x": 440,
+			"y": 131
+		},
+		"TuScdIyrWqZQeEZSUP2dNrpie1lsLKqe": {
+			"height": 60,
+			"title": "clear all enemy positions",
+			"width": 237,
+			"x": 1024,
+			"y": 6
+		},
+		"UUYT9PEKNS4kM0yTgDDVQb7cfPAkcvPx": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 1822,
+			"y": -33
+		},
+		"Z5EgqXVK8C7Kcczy0Pc1PTSVD1EXl0WL": {
+			"height": 92,
+			"title": "store",
+			"width": 190,
+			"x": 2004,
+			"y": 10
+		},
+		"iyXDYbsDsmBkh3gq5xxdzDJZFhfsfy5c": {
+			"height": 112,
+			"title": "formation.move",
+			"width": 370,
+			"x": 2016,
+			"y": -132
+		},
+		"nPkYcwAVRXfa2g2HmcoCddvfjx8sXUsO": {
+			"height": 92,
+			"title": "store",
+			"width": 139,
+			"x": 1345,
+			"y": -303
+		},
+		"pqQooxPLOWVG2pIc7Ui2XLirdt8Nkokm": {
+			"height": 60,
+			"title": "WeakUnitBehavior",
+			"width": 198,
+			"x": 788,
+			"y": 235
+		},
+		"uj6K0vb2hfv0K2pEWnSiLg0xSY0hIjuf": {
+			"height": 132,
+			"title": "luaCondition",
+			"width": 265,
+			"x": 1374,
+			"y": -4
+		},
+		"wTWmBgTykTFRo7uHJdLmnQIkaarWnWhM": {
+			"height": 60,
+			"title": "CaptureHills",
+			"width": 158,
+			"x": 1506,
+			"y": 330
+		},
+		"zyLzkqXxFXOgvz2q6b8HW99BuI2w03Od": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 224,
+			"y": 27
+		}
+	},
+	"roles": [ {
+		"categories": [ "nota_sanchez_aiproject.Fat Units" ],
+		"name": "TankUnits"
+	}, {
+		"categories": [ "nota_sanchez_aiproject.War+PW" ],
+		"name": "WeakUnits"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [ {
+				"children": [],
+				"id": "nPkYcwAVRXfa2g2HmcoCddvfjx8sXUsO",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "tankUnit"
+				}, {
+					"name": "value",
+					"value": "units[1]"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "3iP6mD59Be7mPJ1JEOGnTssL5kMSZGXT",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "currentEnemy"
+				}, {
+					"name": "value",
+					"value": "1"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "69VZH4bCYzwDc0Oa9hefvCNnFjHwG3F9",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "enemyPositions"
+				}, {
+					"name": "value",
+					"value": "core.MissionInfo()[\"enemyPositions\"] "
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [ {
+					"children": [ {
+						"children": [],
+						"id": "iyXDYbsDsmBkh3gq5xxdzDJZFhfsfy5c",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "position",
+							"value": "enemyPositions[currentEnemy]"
+						}, {
+							"name": "formation",
+							"value": "formation.Definition(\"swarm\")[\"positions\"]"
+						}, {
+							"name": "fight",
+							"value": "true"
+						}, {
+							"name": "scriptName",
+							"value": "formation.move"
+						} ],
+						"scriptName": "formation.move"
+					}, {
+						"children": [],
+						"id": "Z5EgqXVK8C7Kcczy0Pc1PTSVD1EXl0WL",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "currentEnemy"
+						}, {
+							"name": "value",
+							"value": "currentEnemy+1"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					} ],
+					"id": "UUYT9PEKNS4kM0yTgDDVQb7cfPAkcvPx",
+					"nodeType": "sequence",
+					"parameters": []
+				}, {
+					"children": [],
+					"id": "FeagkcKke38h4bje351TwFl97KOIbaSU",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "msg",
+						"value": "\"Enemies destroyed\""
+					}, {
+						"name": "scriptName",
+						"value": "echo"
+					} ],
+					"scriptName": "echo"
+				} ],
+				"id": "uj6K0vb2hfv0K2pEWnSiLg0xSY0hIjuf",
+				"nodeType": "luaCondition",
+				"parameters": [ {
+					"name": "expression",
+					"value": "currentEnemy <= #enemyPositions"
+				}, {
+					"name": "repeat",
+					"value": "true"
+				} ]
+			} ],
+			"id": "TuScdIyrWqZQeEZSUP2dNrpie1lsLKqe",
+			"nodeType": "sequence",
+			"parameters": []
+		}, {
+			"children": [ {
+				"children": [ {
+					"children": [],
+					"id": "6E9voIy10lFtUhL6jBPESfXIdz0rzqcw",
+					"nodeType": "success",
+					"parameters": []
+				} ],
+				"id": "4qRlX7GmpTbwcBRU4N8xKpyhsF1UWN7N",
+				"nodeType": "sequence",
+				"parameters": []
+			}, {
+				"children": [ {
+					"children": [ {
+						"children": [],
+						"id": "BzluKjT8qYcT3bsNpTA53x5ntEiski6H",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "positions",
+							"value": "HillFinder()"
+						}, {
+							"name": "fight",
+							"value": "true"
+						}, {
+							"name": "scriptName",
+							"value": "nota_sanchez_aiproject.scatter"
+						} ],
+						"scriptName": "nota_sanchez_aiproject.scatter"
+					} ],
+					"id": "wTWmBgTykTFRo7uHJdLmnQIkaarWnWhM",
+					"nodeType": "repeat",
+					"parameters": []
+				} ],
+				"id": "pqQooxPLOWVG2pIc7Ui2XLirdt8Nkokm",
+				"nodeType": "sequence",
+				"parameters": []
+			} ],
+			"id": "JeACV8JQzpCNujYjPWxKcQzFa0XNaRpn",
+			"nodeType": "roleSplit",
+			"parameters": [ {
+				"name": "mode",
+				"value": "all-success"
+			} ]
+		} ],
+		"id": "zyLzkqXxFXOgvz2q6b8HW99BuI2w03Od",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}

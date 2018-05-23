@@ -1,0 +1,71 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"8L7MzzXyn0rSWbFley0DwF3BZB5XSD1W": {
+			"height": 74,
+			"title": "echo",
+			"width": 318,
+			"x": 407,
+			"y": 67
+		},
+		"D5RZugDo965AqviDt0UjoR4XqZI4wJqx": {
+			"height": 94,
+			"title": "store",
+			"width": 176,
+			"x": 437,
+			"y": -92
+		},
+		"zFlat3Y2kJMhei6WqWRfHHmvYFqL9x3T": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 194,
+			"y": -51
+		}
+	},
+	"roles": [ {
+		"categories": [],
+		"name": "Role 0"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "D5RZugDo965AqviDt0UjoR4XqZI4wJqx",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "x"
+			}, {
+				"name": "value",
+				"value": "core.Position()"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "8L7MzzXyn0rSWbFley0DwF3BZB5XSD1W",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "msg",
+				"value": "x"
+			}, {
+				"name": "scriptName",
+				"value": "echo"
+			} ],
+			"scriptName": "echo"
+		} ],
+		"id": "zFlat3Y2kJMhei6WqWRfHHmvYFqL9x3T",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}
