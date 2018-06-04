@@ -14,14 +14,20 @@ function getInfo()
 				variableType = "expression",
 				componentType = "checkBox",
 				defaultValue = "false",
+			},
+			{ 
+				name = "unitsToMove",
+				variableType = "expression",
+				componentType = "editBox",
+				defaultValue = "\"all\"",
 			}
 		}
 	}
 end
 
 -- constants
-local THRESHOLD_STEP = 25
-local THRESHOLD_DEFAULT = 0
+local THRESHOLD_STEP = 50
+local THRESHOLD_DEFAULT = 100
 
 -- speed-ups
 local SpringGetUnitPosition = Spring.GetUnitPosition
@@ -50,13 +56,19 @@ end
 
 function Run(self, units, parameter)
 	local path = parameter.pathPositions
+	local unitsToMove = parameter.unitsToMove
+	
+	if unitsToMove=="all" or unitsToMove>#units then
+		unitsToMove = #units
+	end
+	
 	
 	if self.initiated == nil then
 		ClearState(self)
 	end
 		
 	local anyUnitsTraveling = false
-	for unitIdx=1, #units do
+	for unitIdx=1, unitsToMove do
 		local unitId = units[unitIdx]
 
 		-- Init once per unit
@@ -66,13 +78,13 @@ function Run(self, units, parameter)
 			-- Queue move orders
 			for targetId = 1, #path do
 				local target = getTarget(targetId, path, parameter.reverse)
-				SpringGiveOrderToUnit(unitId, CMD.MOVE, path[targetId]:AsSpringVector(), {"shift"})
+				SpringGiveOrderToUnit(unitId, CMD.MOVE, target:AsSpringVector(), {"shift"})
 			end	
 		end
 		
 		-- Increase threshold of success if not moving
 		local unitPos = GetUnitPositionVector(unitId)
-		unitPos["y"] = 0
+		unitPos["y"] = Spring.GetGroundHeight(unitPos["x"],unitPos["z"])
 		if (unitPos == self.lastUnitPosition[unitId]) then 
 			self.threshold[unitId] = self.threshold[unitId] + THRESHOLD_STEP 
 		else

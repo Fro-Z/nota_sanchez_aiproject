@@ -45,25 +45,22 @@ function Run(self, units, parameter)
 		self.lastUnitPosition = {}
 	end
 	
-	
-	-- validation
-	if (#positions > #units) then
-		Logger.warn("scatter", "Your position list [" .. #positions .. "] is bigger than number of units [" .. #units .. "] in this group.") 
-		return FAILURE
-	end
-	
 	-- assign target to each unit
 	local unitTargets = {}
+	local nextPositionIdx = 1
 	for unitIdx=1, #units do
-		local x = positions[(unitIdx % #positions)+1]["x"];
-		local z = positions[(unitIdx % #positions)+1]["z"];
-		unitTargets[unitIdx] = Vec3(x, Spring.GetGroundHeight(x,z), z)
-		if self.threshold[unitIdx] == nil then
-			self.threshold[unitIdx] = TRESHOLD_DEFAULT
+	local unitId = units[unitIdx]
+		local x = positions[nextPositionIdx % #positions + 1]["x"]
+		local z = positions[nextPositionIdx % #positions + 1]["z"]
+		nextPositionIdx = nextPositionIdx + 1
+		
+		unitTargets[unitId] = Vec3(x, Spring.GetGroundHeight(x,z), z)
+		if self.threshold[unitId] == nil then
+			self.threshold[unitId] = TRESHOLD_DEFAULT
 		end
 		
-		if self.lastUnitPosition[unitIdx] == nil then
-			self.lastUnitPosition[unitIdx] = Vec3(0,0,0)
+		if self.lastUnitPosition[unitId] == nil then
+			self.lastUnitPosition[unitId] = Vec3(0,0,0)
 		end
 	end
 		
@@ -74,30 +71,44 @@ function Run(self, units, parameter)
 
 	-- threshold of success
 	for unitIdx=1, #units do
-		local pointX, pointY, pointZ = SpringGetUnitPosition(units[unitIdx])
+		local unitId = units[unitIdx]
+		local pointX, pointY, pointZ = SpringGetUnitPosition(unitId)
 		local unitPos = Vec3(pointX, pointY, pointZ)
-		if (unitPos == self.lastUnitPosition[unitIdx]) then 
-			self.threshold[unitIdx] = self.threshold[unitIdx] + THRESHOLD_STEP 
+		if (unitPos == self.lastUnitPosition[unitId]) then 
+			self.threshold[unitId] = self.threshold[unitId] + THRESHOLD_STEP 
 		else
-			self.threshold[unitIdx] = THRESHOLD_DEFAULT
+			self.threshold[unitId] = THRESHOLD_DEFAULT
 		end
-		self.lastUnitPosition[unitIdx] = unitPos
+		self.lastUnitPosition[unitId] = unitPos
 	end
 	
 	-- check for success
 	local allUnitsOnTarget = true;
 	for unitIdx=1, #units do
-		if(self.lastUnitPosition[unitIdx]:Distance(unitTargets[unitIdx]) > self.threshold[unitIdx]) then
+	local unitId = units[unitIdx]
+		if(self.lastUnitPosition[unitId]:Distance(unitTargets[unitId]) > self.threshold[unitId]) then
 			allUnitsOnTarget = false
+		else
+			-- are there any more targets
+			if nextPositionIdx <= #positions then
+				local x = positions[nextPositionIdx]["x"];
+				local z = positions[nextPositionIdx]["z"];
+				nextPositionIdx = nextPositionIdx +1
+				
+				unitTargets[unitId] = Vec3(x, Spring.GetGroundHeight(x,z), z)
+				self.threshold[unitId] = TRESHOLD_DEFAULT
+				allUnitsOnTarget = false
+			end
 		end
 	end
 
 
-	if (allUnitsOnTarget) then
+	if (allUnitsOnTarget and nextPositionIdx > #positions) then
 		return SUCCESS
 	else
 		for unitIdx=1, #units do
-			SpringGiveOrderToUnit(units[unitIdx], cmdID, unitTargets[unitIdx]:AsSpringVector(), {})
+			local unitId = units[unitIdx]
+			SpringGiveOrderToUnit(unitId, cmdID, unitTargets[unitId]:AsSpringVector(), {})
 		end
 		
 		return RUNNING
