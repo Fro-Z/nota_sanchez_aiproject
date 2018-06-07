@@ -158,7 +158,7 @@
 					"nodeType": "wait",
 					"parameters": [ {
 						"name": "time",
-						"value": 1030
+						"value": 1015
 					} ]
 				}, {
 					"children": [ {
