@@ -1,7 +1,7 @@
 local sensorInfo = {
 	name = "GetSafePath",
 	desc = "Get safe path between two points if it exists, calculating between multiple calls",
-	author = "PepeAmpere",
+	author = "Luis",
 	date = "2017-05-16",
 	license = "notAlicense",
 }
@@ -18,7 +18,7 @@ local gridStep = 50;
 local mapSizeX = Game.mapSizeX;
 local mapSizeZ = Game.mapSizeZ;
 local lastEnemyUnit = nil; --last enemy unit that caused a point to be unsafe (speeds up calculation of adjacent tiles)
-local dangerRangeForUnknownUnit = 500
+local dangerRangeForUnknownUnit = 900
 local maxNodesPerStep = 500;
 local mayWaypointsGeneratedPerStep = 3000; --setting this too low makes the generation take too long, but reduces freezes
 
@@ -152,18 +152,17 @@ local function expand(currentWp, nodesToExpand, openNodes, predecessors)
 	local x = currentWp["x"]
 	local y = currentWp["y"]
 	
-	-- Top
-	addIfSafe(x-gridStep, y+gridStep, nodesToExpand, openNodes, predecessors, currentWp)
+	-- Prefer movement in non diagonal directions
 	addIfSafe(x, y+gridStep, nodesToExpand, openNodes, predecessors, currentWp)
-	addIfSafe(x+gridStep, y+gridStep, nodesToExpand, openNodes, predecessors, currentWp)
-	
-	-- Center
 	addIfSafe(x-gridStep, y, nodesToExpand, openNodes, predecessors, currentWp)
 	addIfSafe(x+gridStep, y, nodesToExpand, openNodes, predecessors, currentWp)
-	
-	-- Bottom
-	addIfSafe(x-gridStep, y-gridStep, nodesToExpand, openNodes, predecessors, currentWp)
 	addIfSafe(x, y-gridStep, nodesToExpand, openNodes, predecessors, currentWp)
+
+	addIfSafe(x-gridStep, y+gridStep, nodesToExpand, openNodes, predecessors, currentWp)
+	addIfSafe(x+gridStep, y+gridStep, nodesToExpand, openNodes, predecessors, currentWp)
+	
+
+	addIfSafe(x-gridStep, y-gridStep, nodesToExpand, openNodes, predecessors, currentWp)
 	addIfSafe(x+gridStep, y-gridStep, nodesToExpand, openNodes, predecessors, currentWp)
 
 end
@@ -204,7 +203,7 @@ local function reconstructPath(waypoint, predecessors, pathState, to)
 	for i=1,#path do
 		local x = path[i]["x"]
 		local y = path[i]["y"]
-		reversedPath[#path-i+1] = Vec3(x, 0, y)
+		reversedPath[#path-i+1] = Vec3(x, SpringGetGroundHeight(x,y), y)
 	end
 	
 	-- Move to the target point that does not lie on the grid

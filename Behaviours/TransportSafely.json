@@ -1,0 +1,377 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 134,
+			"width": 231
+		}
+	},
+	"inputs": [ {
+		"command": "BETS_UNIT",
+		"name": "unitIds"
+	} ],
+	"outputs": [],
+	"properties": {
+		"0VPkvATlZgRpAyxoM0Qnt1D2h8yn7yZP": {
+			"height": 105,
+			"title": "nota_sanchez_aiproject.waitForSensor",
+			"width": 315,
+			"x": 531,
+			"y": 112
+		},
+		"1GXsk4M3NYxnjdHr1gF6isBZIaAQG6dW": {
+			"height": 72,
+			"title": "wait",
+			"width": 131,
+			"x": 1154,
+			"y": 793
+		},
+		"1zKFoGn6spY7BJZHcNjxXQTtvRDJ1ncY": {
+			"height": 108,
+			"title": "luaCondition",
+			"width": 223,
+			"x": 544,
+			"y": 354
+		},
+		"2bxk4Pq4afWd9bOuSzeMTG6r6cCXB1eX": {
+			"height": 94,
+			"title": "store",
+			"width": 331,
+			"x": 1489,
+			"y": 944
+		},
+		"5rEoGUPgFTMb878rgzAmgCOhzKfHPvn9": {
+			"height": 72,
+			"title": "nota_sanchez_aiproject.unloadUnits",
+			"width": 291,
+			"x": 1167,
+			"y": 706
+		},
+		"7kqD5rUdRNqu3tdJyE4Y9pzKdhWkDbYa": {
+			"height": 94,
+			"title": "store",
+			"width": 330,
+			"x": 1487,
+			"y": 1046
+		},
+		"8fR6RyZqwv68CIoZaHhBqh4TgWkTm9SZ": {
+			"height": 94,
+			"title": "store",
+			"width": 291,
+			"x": 536,
+			"y": 15
+		},
+		"A00p5vM620RcumbZD65LcZaPh2YfrNww": {
+			"height": 72,
+			"title": "wait",
+			"width": 131,
+			"x": 1169,
+			"y": 493
+		},
+		"NzKCGySftcW0fPDxsDwiV0fte8IZV6jL": {
+			"height": 72,
+			"title": "wait",
+			"width": 131,
+			"x": 1166,
+			"y": 340
+		},
+		"Rt0BE8XLDgNGPXwgslRnX8MfeHvycXXi": {
+			"height": 92,
+			"title": "nota_sanchez_aiproject.loadUnits",
+			"width": 275,
+			"x": 1164,
+			"y": 413
+		},
+		"Wu6joQuHA8TPFW9VjwRky7OVB9dXsT2L": {
+			"height": 112,
+			"title": "nota_sanchez_aiproject.followPath",
+			"width": 281,
+			"x": 1170,
+			"y": 569
+		},
+		"b1qxsLNV12rq0GO1yc1CdYiknTh2uZop": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 296,
+			"y": -3
+		},
+		"dZQE3dOuqb1bf5QoYSThyzNjUb4UqXYV": {
+			"height": 112,
+			"title": "nota_sanchez_aiproject.followPath",
+			"width": 281,
+			"x": 1161,
+			"y": 210
+		},
+		"gcDlBaGfyTE8EQyllACbe9A879eF1Ek6": {
+			"height": 94,
+			"title": "store",
+			"width": 277,
+			"x": 534,
+			"y": -76
+		},
+		"l8sG0rZhPIveUl2jTZmn5Lzpjh2aayMF": {
+			"height": 60,
+			"title": "moveOutOfTheCircle",
+			"width": 215,
+			"x": 1189,
+			"y": 867
+		},
+		"liOyQYs3Q8xeQaAIKhQ7rmo7sDEKeyJX": {
+			"height": 60,
+			"title": "TransportUnitSequence",
+			"width": 232,
+			"x": 856,
+			"y": 317
+		},
+		"tHTeqUJn0kj74HXso0kcVQStOkU6a9Sz": {
+			"height": 90,
+			"title": "Common.move",
+			"width": 460,
+			"x": 1480,
+			"y": 1138
+		},
+		"xdz0NDtCMaFLzKsUoe0OynvNUZ1V8Gec": {
+			"height": 94,
+			"title": "store",
+			"width": 365,
+			"x": 536,
+			"y": 224
+		},
+		"zsGUiXZ1oJdWCHVZG2Difdr0nZIrhMgl": {
+			"height": 54,
+			"title": "failure",
+			"width": 131,
+			"x": 796,
+			"y": 413
+		}
+	},
+	"roles": [ {
+		"categories": [],
+		"name": "Role 0"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "gcDlBaGfyTE8EQyllACbe9A879eF1Ek6",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "deliveryPoint"
+			}, {
+				"name": "value",
+				"value": "RandomPointInSafeZone()"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "8fR6RyZqwv68CIoZaHhBqh4TgWkTm9SZ",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "unitPos"
+			}, {
+				"name": "value",
+				"value": "GetUnitPositionVector(unitIds[1])"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "0VPkvATlZgRpAyxoM0Qnt1D2h8yn7yZP",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "sensor",
+				"value": "GetSafePath"
+			}, {
+				"name": "parameters",
+				"value": "{deliveryPoint, unitPos}"
+			}, {
+				"name": "scriptName",
+				"value": "nota_sanchez_aiproject.waitForSensor"
+			} ],
+			"scriptName": "nota_sanchez_aiproject.waitForSensor"
+		}, {
+			"children": [],
+			"id": "xdz0NDtCMaFLzKsUoe0OynvNUZ1V8Gec",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "path"
+			}, {
+				"name": "value",
+				"value": "GetSafePath(deliveryPoint, unitPos)[\"result\"]"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [ {
+				"children": [ {
+					"children": [],
+					"id": "dZQE3dOuqb1bf5QoYSThyzNjUb4UqXYV",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "pathPositions",
+						"value": "path"
+					}, {
+						"name": "reverse",
+						"value": "false"
+					}, {
+						"name": "unitsToMove",
+						"value": "1"
+					}, {
+						"name": "scriptName",
+						"value": "nota_sanchez_aiproject.followPath"
+					} ],
+					"scriptName": "nota_sanchez_aiproject.followPath"
+				}, {
+					"children": [],
+					"id": "NzKCGySftcW0fPDxsDwiV0fte8IZV6jL",
+					"nodeType": "wait",
+					"parameters": [ {
+						"name": "time",
+						"value": 2
+					} ]
+				}, {
+					"children": [],
+					"id": "Rt0BE8XLDgNGPXwgslRnX8MfeHvycXXi",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "transporter",
+						"value": "units[1]"
+					}, {
+						"name": "unit",
+						"value": "unitIds[1]"
+					}, {
+						"name": "scriptName",
+						"value": "nota_sanchez_aiproject.loadUnits"
+					} ],
+					"scriptName": "nota_sanchez_aiproject.loadUnits"
+				}, {
+					"children": [],
+					"id": "A00p5vM620RcumbZD65LcZaPh2YfrNww",
+					"nodeType": "wait",
+					"parameters": [ {
+						"name": "time",
+						"value": 2
+					} ]
+				}, {
+					"children": [],
+					"id": "Wu6joQuHA8TPFW9VjwRky7OVB9dXsT2L",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "pathPositions",
+						"value": "path"
+					}, {
+						"name": "reverse",
+						"value": "true"
+					}, {
+						"name": "unitsToMove",
+						"value": "1"
+					}, {
+						"name": "scriptName",
+						"value": "nota_sanchez_aiproject.followPath"
+					} ],
+					"scriptName": "nota_sanchez_aiproject.followPath"
+				}, {
+					"children": [],
+					"id": "5rEoGUPgFTMb878rgzAmgCOhzKfHPvn9",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "transporter",
+						"value": "units[1]"
+					}, {
+						"name": "scriptName",
+						"value": "nota_sanchez_aiproject.unloadUnits"
+					} ],
+					"scriptName": "nota_sanchez_aiproject.unloadUnits"
+				}, {
+					"children": [],
+					"id": "1GXsk4M3NYxnjdHr1gF6isBZIaAQG6dW",
+					"nodeType": "wait",
+					"parameters": [ {
+						"name": "time",
+						"value": 2
+					} ]
+				}, {
+					"children": [ {
+						"children": [],
+						"id": "2bxk4Pq4afWd9bOuSzeMTG6r6cCXB1eX",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "randomPoint"
+						}, {
+							"name": "value",
+							"value": "RandomPointInSafeZone()"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [],
+						"id": "7kqD5rUdRNqu3tdJyE4Y9pzKdhWkDbYa",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "safeRadius"
+						}, {
+							"name": "value",
+							"value": "core.MissionInfo()[\"safeArea\"][\"radius\"]"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [],
+						"id": "tHTeqUJn0kj74HXso0kcVQStOkU6a9Sz",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "pos",
+							"value": "{x = randomPoint[\"x\"] - safeRadius*1.2, z = randomPoint[\"z\"]}"
+						}, {
+							"name": "fight",
+							"value": "false"
+						}, {
+							"name": "scriptName",
+							"value": "Common.move"
+						} ],
+						"scriptName": "Common.move"
+					} ],
+					"id": "l8sG0rZhPIveUl2jTZmn5Lzpjh2aayMF",
+					"nodeType": "sequence",
+					"parameters": []
+				} ],
+				"id": "liOyQYs3Q8xeQaAIKhQ7rmo7sDEKeyJX",
+				"nodeType": "sequence",
+				"parameters": []
+			}, {
+				"children": [],
+				"id": "zsGUiXZ1oJdWCHVZG2Difdr0nZIrhMgl",
+				"nodeType": "failure",
+				"parameters": []
+			} ],
+			"id": "1zKFoGn6spY7BJZHcNjxXQTtvRDJ1ncY",
+			"nodeType": "luaCondition",
+			"parameters": [ {
+				"name": "expression",
+				"value": "path ~= nil and #path>=2"
+			}, {
+				"name": "repeat",
+				"value": "false"
+			} ]
+		} ],
+		"id": "b1qxsLNV12rq0GO1yc1CdYiknTh2uZop",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}

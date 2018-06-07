@@ -23,7 +23,6 @@ local gridStep = 40;
 
 function isHill(x, y)
 	return Spring.GetGroundHeight(x,y) > hillTreshold
-
 end
 
 -- Get table of hill centers, assuming rectangular hills

@@ -36,6 +36,10 @@ function Run(self, units, parameter)
 	local positions = parameter.positions -- table of Vec3
 	local fight = parameter.fight -- boolean
 	
+	if #positions==0 then
+		return SUCCESS
+	end
+	
 	-- init
 	if self.threshold == nil then
 		self.threshold = {}

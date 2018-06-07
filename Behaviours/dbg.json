@@ -1,5 +1,126 @@
 {
-	"additionalNodes": [],
+	"additionalNodes": [ {
+		"children": [],
+		"id": "9PtcgeQ2n4J6AX9Q5oVWyvpFQqWqRrST",
+		"nodeType": "luaCommand",
+		"parameters": [ {
+			"name": "positions",
+			"value": "x"
+		}, {
+			"name": "fight",
+			"value": "false"
+		}, {
+			"name": "scriptName",
+			"value": "nota_sanchez_aiproject.scatter"
+		} ],
+		"scriptName": "nota_sanchez_aiproject.scatter"
+	}, {
+		"children": [ {
+			"children": [],
+			"id": "D5RZugDo965AqviDt0UjoR4XqZI4wJqx",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "unitPos"
+			}, {
+				"name": "value",
+				"value": "GetUnitPositionVector(units[1])"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "dDZZJVybUL8QziFzgfBGdYdP2x9WsBmW",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "circleCenter"
+			}, {
+				"name": "value",
+				"value": "core.MissionInfo()[\"safeArea\"][\"center\"]"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "3cVjSZFOxqGz5QBKfVIhcGGrZ0h9CVES",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "sensor",
+				"value": "GetSafePath"
+			}, {
+				"name": "parameters",
+				"value": "{unitPos, circleCenter}"
+			}, {
+				"name": "scriptName",
+				"value": "nota_sanchez_aiproject.waitForSensor"
+			} ],
+			"scriptName": "nota_sanchez_aiproject.waitForSensor"
+		}, {
+			"children": [],
+			"id": "h2JxA6ZcIT8KEU9eGgQ0LEmZMRgOn59I",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "x"
+			}, {
+				"name": "value",
+				"value": "GetSafePath(unitPos,circleCenter)[\"result\"]"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [ {
+				"children": [],
+				"id": "qwQDTS4etrvFRwtw6iYBOg12C2DpgdfJ",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "pathPositions",
+					"value": "x"
+				}, {
+					"name": "reverse",
+					"value": "false"
+				}, {
+					"name": "unitsToMove",
+					"value": "\"all\""
+				}, {
+					"name": "scriptName",
+					"value": "nota_sanchez_aiproject.followPath"
+				} ],
+				"scriptName": "nota_sanchez_aiproject.followPath"
+			} ],
+			"id": "rhA2HREMtSFoZqsI72lk7HY2Gr23WW3x",
+			"nodeType": "luaCondition",
+			"parameters": [ {
+				"name": "expression",
+				"value": "x~=nil"
+			}, {
+				"name": "repeat",
+				"value": "false"
+			} ]
+		} ],
+		"id": "zFlat3Y2kJMhei6WqWRfHHmvYFqL9x3T",
+		"nodeType": "sequence",
+		"parameters": []
+	}, {
+		"children": [],
+		"id": "8L7MzzXyn0rSWbFley0DwF3BZB5XSD1W",
+		"nodeType": "luaCommand",
+		"parameters": [ {
+			"name": "msg",
+			"value": "x"
+		}, {
+			"name": "scriptName",
+			"value": "echo"
+		} ],
+		"scriptName": "echo"
+	} ],
 	"additionalParameters": {
 		"root": {
 			"height": 88,
@@ -9,26 +130,82 @@
 	"inputs": [],
 	"outputs": [],
 	"properties": {
+		"3cVjSZFOxqGz5QBKfVIhcGGrZ0h9CVES": {
+			"height": 92,
+			"title": "nota_sanchez_aiproject.waitForSensor",
+			"width": 308,
+			"x": 559,
+			"y": 226
+		},
+		"4Kjyq08CRocAGhdDUisRayl2oNhSf9bV": {
+			"height": 74,
+			"title": "echo",
+			"width": 325,
+			"x": 469,
+			"y": -162
+		},
 		"8L7MzzXyn0rSWbFley0DwF3BZB5XSD1W": {
 			"height": 74,
 			"title": "echo",
 			"width": 318,
-			"x": 407,
-			"y": 67
+			"x": 554,
+			"y": 444
+		},
+		"9PtcgeQ2n4J6AX9Q5oVWyvpFQqWqRrST": {
+			"height": 92,
+			"title": "nota_sanchez_aiproject.scatter",
+			"width": 279,
+			"x": 728,
+			"y": 632
 		},
 		"D5RZugDo965AqviDt0UjoR4XqZI4wJqx": {
 			"height": 94,
 			"title": "store",
-			"width": 176,
-			"x": 437,
-			"y": -92
+			"width": 439,
+			"x": 526,
+			"y": -27
+		},
+		"NxNZOM8cwR248hTknTHJmIVVbOLFpr1l": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 282,
+			"y": -106
+		},
+		"dDZZJVybUL8QziFzgfBGdYdP2x9WsBmW": {
+			"height": 94,
+			"title": "store",
+			"width": 331,
+			"x": 557,
+			"y": 104
+		},
+		"h2JxA6ZcIT8KEU9eGgQ0LEmZMRgOn59I": {
+			"height": 94,
+			"title": "store",
+			"width": 355,
+			"x": 564,
+			"y": 338
+		},
+		"qwQDTS4etrvFRwtw6iYBOg12C2DpgdfJ": {
+			"height": 112,
+			"title": "nota_sanchez_aiproject.followPath",
+			"width": 281,
+			"x": 800,
+			"y": 539
+		},
+		"rhA2HREMtSFoZqsI72lk7HY2Gr23WW3x": {
+			"height": 90,
+			"title": "luaCondition",
+			"width": 194,
+			"x": 522,
+			"y": 548
 		},
 		"zFlat3Y2kJMhei6WqWRfHHmvYFqL9x3T": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 194,
-			"y": -51
+			"x": 289,
+			"y": 20
 		}
 	},
 	"roles": [ {
@@ -38,33 +215,18 @@
 	"root": {
 		"children": [ {
 			"children": [],
-			"id": "D5RZugDo965AqviDt0UjoR4XqZI4wJqx",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "var",
-				"value": "x"
-			}, {
-				"name": "value",
-				"value": "core.Position()"
-			}, {
-				"name": "scriptName",
-				"value": "store"
-			} ],
-			"scriptName": "store"
-		}, {
-			"children": [],
-			"id": "8L7MzzXyn0rSWbFley0DwF3BZB5XSD1W",
+			"id": "4Kjyq08CRocAGhdDUisRayl2oNhSf9bV",
 			"nodeType": "luaCommand",
 			"parameters": [ {
 				"name": "msg",
-				"value": "x"
+				"value": "GetUnitContinent(22116)"
 			}, {
 				"name": "scriptName",
 				"value": "echo"
 			} ],
 			"scriptName": "echo"
 		} ],
-		"id": "zFlat3Y2kJMhei6WqWRfHHmvYFqL9x3T",
+		"id": "NxNZOM8cwR248hTknTHJmIVVbOLFpr1l",
 		"nodeType": "sequence",
 		"parameters": []
 	}

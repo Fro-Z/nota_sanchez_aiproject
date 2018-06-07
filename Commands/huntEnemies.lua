@@ -45,8 +45,16 @@ local function tableAddNext(tbl, value)
 	tbl[#tbl]=value
 end
 
+local function getUnitContinent(unitId)
+    -- Result is cached between calls, so we cannot ask the sensor unit by unit :/
+	return Sensors.nota_sanchez_aiproject.GetUnitContinents()[unitId]
+end
+
 local function areOnTheSameHill(unit1, unit2)
-	return Sensors.nota_sanchez_aiproject.GetUnitContinent(unit1) == Sensors.nota_sanchez_aiproject.GetUnitContinent(unit2)
+	local continent1 = getUnitContinent(unit1);
+	local continent2 = getUnitContinent(unit2);
+
+	return continent1~=nil and continent2~=nil and continent1 == continent2
 end
 
 local function isOnLand(unitId)
@@ -63,12 +71,16 @@ local function getAvailableTargets(unitId, tabooList, hillMap)
 		local enemyId = enemyUnitIds[enemyIdx]
 	
 		-- Target is avaiblable if not taboo and is on the same hill
-		if (not (tabooList[unitId] ~= nil and tableContains(tabooList, enemyId)))
-		and areOnTheSameHill(unitId, enemyId) and isOnLand(enemyId) then
-			availableTargets[#availableTargets+1] = enemyId
-		end
+		if (not tableContains(tabooList, enemyId)) then
 		
+			if areOnTheSameHill(unitId, enemyId) and isOnLand(enemyId) then
+				availableTargets[#availableTargets+1] = enemyId
+			else
+				tabooList[#tabooList+1] = enemyId
+			end	
+		end
 	end
+
 	return availableTargets
 end
 
@@ -157,7 +169,7 @@ function Run(self, units, parameter)
 		local unitId = units[unitIdx]
 		local pointX, pointY, pointZ = SpringGetUnitPosition(unitId)
 		local unitPos = Vec3(pointX, pointY, pointZ)
-		if unitPos:Distance(self.lastUnitPosition[unitId]) < 5 then 
+		if self.unitTargets[unitId]~=nil and unitPos:Distance(self.lastUnitPosition[unitId]) < 5 then 
 			self.threshold[unitId] = self.threshold[unitId] + THRESHOLD_STEP 
 		else
 			self.threshold[unitId] = THRESHOLD_DEFAULT

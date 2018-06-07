@@ -1,0 +1,182 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"10pkTs0eFcUFUG5BMSDZ6KLAZ90NHC9E": {
+			"height": 72,
+			"title": "wait",
+			"width": 131,
+			"x": 685,
+			"y": 19
+		},
+		"B6b5wqMU0FoWXLCo87VrEt0LV5q7LFZX": {
+			"height": 60,
+			"title": "Ground Units",
+			"width": 165,
+			"x": 476,
+			"y": -100
+		},
+		"BR6d7UFFpJxUeXm3EXXiJfllfKYt2TM0": {
+			"height": 72,
+			"title": "wait",
+			"width": 131,
+			"x": 705,
+			"y": 282
+		},
+		"IDYh7lXrRTTifqws6Y1jm38VmCOTmZ2v": {
+			"height": 70,
+			"title": "roleSplit",
+			"width": 202,
+			"x": 247,
+			"y": 1
+		},
+		"LOU7OQvqfXZLexG1cP23J5CzzSPufiYB": {
+			"height": 54,
+			"title": "success",
+			"width": 132,
+			"x": 696,
+			"y": 175
+		},
+		"OU3ujQEspKKkDCfeD3fKoe7n64lD08NJ": {
+			"height": 110,
+			"title": "reference",
+			"width": 325,
+			"x": 705,
+			"y": 371
+		},
+		"Vmt7MXEknknkcIr5jEyVDh3Tm9jtK7tz": {
+			"height": 54,
+			"title": "nota_sanchez_aiproject.huntEnemies",
+			"width": 299,
+			"x": 695,
+			"y": -98
+		},
+		"ahiF6qtZBqeQOixvy6mxCzAfsFIyKIxi": {
+			"height": 60,
+			"title": "Transports",
+			"width": 150,
+			"x": 479,
+			"y": 23
+		},
+		"goDFWuKE048RfSFBmpBlJLHvB2idygAN": {
+			"height": 110,
+			"title": "reference",
+			"width": 348,
+			"x": 857,
+			"y": 56
+		},
+		"hq1gvYiXfwY6RM2R1Owaut9n3U3GJ2Cp": {
+			"height": 60,
+			"title": "Scouts",
+			"width": 143,
+			"x": 480,
+			"y": 284
+		},
+		"u0vAS1xBAuhzLjV3hLlyjsswEiyGIMox": {
+			"height": 60,
+			"title": "Buildings",
+			"width": 143,
+			"x": 484,
+			"y": 175
+		}
+	},
+	"roles": [ {
+		"categories": [ "nota_sanchez_aiproject.Hammer+Rocko" ],
+		"name": "GroundUnits"
+	}, {
+		"categories": [ "nota_sanchez_aiproject.Flying" ],
+		"name": "Transports"
+	}, {
+		"categories": [ "nota_sanchez_aiproject.BODHattrack", "nota_sanchez_aiproject.Hatrack2" ],
+		"name": "Buildings"
+	}, {
+		"categories": [ "nota_sanchez_aiproject.Peeper" ],
+		"name": "Scouts"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [ {
+				"children": [],
+				"id": "Vmt7MXEknknkcIr5jEyVDh3Tm9jtK7tz",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "scriptName",
+					"value": "nota_sanchez_aiproject.huntEnemies"
+				} ],
+				"scriptName": "nota_sanchez_aiproject.huntEnemies"
+			} ],
+			"id": "B6b5wqMU0FoWXLCo87VrEt0LV5q7LFZX",
+			"nodeType": "sequence",
+			"parameters": []
+		}, {
+			"children": [ {
+				"children": [],
+				"id": "10pkTs0eFcUFUG5BMSDZ6KLAZ90NHC9E",
+				"nodeType": "wait",
+				"parameters": [ {
+					"name": "time",
+					"value": 800
+				} ]
+			}, {
+				"children": [],
+				"id": "goDFWuKE048RfSFBmpBlJLHvB2idygAN",
+				"nodeType": "reference",
+				"parameters": [ {
+					"name": "behaviourName",
+					"value": "nota_sanchez_aiproject.TransportSafelyAll"
+				} ],
+				"referenceInputs": [],
+				"referenceOutputs": []
+			} ],
+			"id": "ahiF6qtZBqeQOixvy6mxCzAfsFIyKIxi",
+			"nodeType": "sequence",
+			"parameters": []
+		}, {
+			"children": [ {
+				"children": [],
+				"id": "LOU7OQvqfXZLexG1cP23J5CzzSPufiYB",
+				"nodeType": "success",
+				"parameters": []
+			} ],
+			"id": "u0vAS1xBAuhzLjV3hLlyjsswEiyGIMox",
+			"nodeType": "sequence",
+			"parameters": []
+		}, {
+			"children": [ {
+				"children": [],
+				"id": "BR6d7UFFpJxUeXm3EXXiJfllfKYt2TM0",
+				"nodeType": "wait",
+				"parameters": [ {
+					"name": "time",
+					"value": 720
+				} ]
+			}, {
+				"children": [],
+				"id": "OU3ujQEspKKkDCfeD3fKoe7n64lD08NJ",
+				"nodeType": "reference",
+				"parameters": [ {
+					"name": "behaviourName",
+					"value": "nota_sanchez_aiproject.ScoutPositions"
+				} ],
+				"referenceInputs": [],
+				"referenceOutputs": []
+			} ],
+			"id": "hq1gvYiXfwY6RM2R1Owaut9n3U3GJ2Cp",
+			"nodeType": "sequence",
+			"parameters": []
+		} ],
+		"id": "IDYh7lXrRTTifqws6Y1jm38VmCOTmZ2v",
+		"nodeType": "roleSplit",
+		"parameters": [ {
+			"name": "mode",
+			"value": "all-success"
+		} ]
+	}
+}

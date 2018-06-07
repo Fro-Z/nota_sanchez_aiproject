@@ -1,6 +1,6 @@
 local sensorInfo = {
-	name = "GetUnitContinent",
-	desc = "EXPERIMENTAL! Get continent of the unit",
+	name = "GetUnitContinents",
+	desc = "Get table of units and their continents",
 	author = "Luis",
 	date = "2017-05-16",
 	license = "notAlicense",
@@ -128,13 +128,8 @@ function roundToMultiple(value, multiple)
 	end
 end
 
--- @description return current wind statistics
-return function(unitId)	
-	if global.hillMap == nil then
-		global.hillMap = generateHillMap()
-	end
-	
-	local x,y,z = Spring.GetUnitPosition(unitId);
+local function getUnitContinent(unitId)
+local x,y,z = Spring.GetUnitPosition(unitId);
 	x = roundToMultiple(x, gridStep);
 	z = roundToMultiple(z, gridStep);
 	
@@ -143,4 +138,20 @@ return function(unitId)
 	else
 		return nil
 	end
+end
+
+-- @description return table of units and their continents
+return function(unitId)	
+	if global.hillMap == nil then
+		global.hillMap = generateHillMap()
+	end
+	
+	local allUnits = Spring.GetAllUnits()
+	local unitContinents = {}
+	for unitIdx = 1, #allUnits do
+		local unitId = allUnits[unitIdx]
+		unitContinents[unitId] = getUnitContinent(unitId)
+	end
+	return unitContinents
+	
 end

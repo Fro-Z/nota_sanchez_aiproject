@@ -1,0 +1,174 @@
+{
+	"additionalNodes": [ {
+		"children": [ {
+			"children": [],
+			"id": "ai39QQ1m1DEqZbN7TaDOzXFvJr2b2zcG",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "landingPos"
+			}, {
+				"name": "value",
+				"value": "RandomPointInSafeZone()"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "bpMW0ulmzAQ9vsuw4b0dIHgHlVWhtFcj",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "radius"
+			}, {
+				"name": "value",
+				"value": "core.MissionInfo()[\"safeArea\"][\"radius\"]"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "ZcpPf4GeOx7jUeG521XJkkNTT61w82vR",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "landingPos"
+			}, {
+				"name": "value",
+				"value": "landingPos:Add(Vec3(radius*2, 0, 0))"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "wleSrHah5O0mOtjYUHSUYlPgYsJzKgMd",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "pos",
+				"value": "{x = landingPos[\"x\"], z = landingPos[\"z\"]}"
+			}, {
+				"name": "fight",
+				"value": "false"
+			}, {
+				"name": "scriptName",
+				"value": "Common.move"
+			} ],
+			"scriptName": "Common.move"
+		} ],
+		"id": "mbrQGLRy5ehblC4P3M5W8EemQyoeaYw7",
+		"nodeType": "sequence",
+		"parameters": []
+	} ],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"Q50IDL8Lc6Qgs806HKck2o9SN4ycoN9l": {
+			"height": 94,
+			"title": "store",
+			"width": 294,
+			"x": 783,
+			"y": -124
+		},
+		"ZcpPf4GeOx7jUeG521XJkkNTT61w82vR": {
+			"height": 108,
+			"title": "store",
+			"width": 351,
+			"x": 742,
+			"y": 351
+		},
+		"ai39QQ1m1DEqZbN7TaDOzXFvJr2b2zcG": {
+			"height": 94,
+			"title": "store",
+			"width": 254,
+			"x": 760,
+			"y": 105
+		},
+		"bpMW0ulmzAQ9vsuw4b0dIHgHlVWhtFcj": {
+			"height": 94,
+			"title": "store",
+			"width": 330,
+			"x": 744,
+			"y": 230
+		},
+		"fQfIVjR00Uv7tcf2iY806PprvPRIYmg9": {
+			"height": 92,
+			"title": "nota_sanchez_aiproject.scatter",
+			"width": 279,
+			"x": 770,
+			"y": -10
+		},
+		"iuOT50yOx1pCVCTICmKhzAWKScIlmAxY": {
+			"height": 60,
+			"title": "scoutAround",
+			"width": 162,
+			"x": 469,
+			"y": -108
+		},
+		"mbrQGLRy5ehblC4P3M5W8EemQyoeaYw7": {
+			"height": 60,
+			"title": "landOutsideSafeZone",
+			"width": 219,
+			"x": 472,
+			"y": 62
+		},
+		"wleSrHah5O0mOtjYUHSUYlPgYsJzKgMd": {
+			"height": 90,
+			"title": "Common.move",
+			"width": 328,
+			"x": 734,
+			"y": 472
+		}
+	},
+	"roles": [ {
+		"categories": [],
+		"name": "Role 0"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "Q50IDL8Lc6Qgs806HKck2o9SN4ycoN9l",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "positions"
+			}, {
+				"name": "value",
+				"value": "GetRandomMapPositions(#units)"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "fQfIVjR00Uv7tcf2iY806PprvPRIYmg9",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "positions",
+				"value": "positions"
+			}, {
+				"name": "fight",
+				"value": "false"
+			}, {
+				"name": "scriptName",
+				"value": "nota_sanchez_aiproject.scatter"
+			} ],
+			"scriptName": "nota_sanchez_aiproject.scatter"
+		} ],
+		"id": "iuOT50yOx1pCVCTICmKhzAWKScIlmAxY",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}
