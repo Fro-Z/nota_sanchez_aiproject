@@ -27,7 +27,9 @@ return function()
 	local radius = safeArea["radius"]*0.95 --add a bit of tolerance
 	
 	local angle = math.random() * 2 * math.pi
-	local centerOffset = Vec3(math.sin(angle), 0, math.cos(angle)):GetNormal():Mul(radius);
+	local offsetMultiplier = math.random()
+	local centerOffset = Vec3(math.sin(angle), 0, math.cos(angle)):GetNormal():Mul(radius*offsetMultiplier);
+
 	
 	return safeArea["center"]:Add(centerOffset)
 end

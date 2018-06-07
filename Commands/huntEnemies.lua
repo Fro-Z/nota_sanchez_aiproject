@@ -1,6 +1,6 @@
 function getInfo()
 	return {
-		onNoUnits = FAILURE, -- instant success
+		onNoUnits = SUCCESS, -- instant success
 		tooltip = "Hunt reachable enemies",
 		parameterDefs = {}
 	}
@@ -21,6 +21,7 @@ local SpringGiveOrderToUnit = Spring.GiveOrderToUnit
 local SpringGetGroundHeight = Spring.GetGroundHeight
 local SpringIsUnitInLos = Spring.IsUnitInLos
 local SpringGetUnitDefID = Spring.GetUnitDefID
+
 
 
 local function ClearState(self)
@@ -53,22 +54,28 @@ end
 local function areOnTheSameHill(unit1, unit2)
 	local continent1 = getUnitContinent(unit1);
 	local continent2 = getUnitContinent(unit2);
-
+	
 	return continent1~=nil and continent2~=nil and continent1 == continent2
 end
 
 local function isOnLand(unitId)
 	local x,y,z = SpringGetUnitPosition(unitId)
-	return SpringGetGroundHeight(x,z) > 1
+	return SpringGetGroundHeight(x,z) > 100
+end
+
+local function getEnemies()
+	local enemyUnitIds = Sensors.core.EnemyUnits()
+
+	return enemyUnitIds
 end
 
 local function getAvailableTargets(unitId, tabooList, hillMap)
-	local enemyUnitIds = Sensors.core.EnemyUnits()
+	local enemyUnits = getEnemies()
 	local availableTargets = {}
 	
 	-- Add all reachable enemy units as targets
-	for enemyIdx=1, #enemyUnitIds do
-		local enemyId = enemyUnitIds[enemyIdx]
+	for enemyIdx=1,#enemyUnits do
+		local enemyId = enemyUnits[enemyIdx]
 	
 		-- Target is avaiblable if not taboo and is on the same hill
 		if (not tableContains(tabooList, enemyId)) then

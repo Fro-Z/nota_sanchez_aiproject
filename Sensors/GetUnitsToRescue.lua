@@ -35,7 +35,7 @@ end
 -- @description return current wind statistics
 return function(unitId)
 	local teamId = Spring.GetUnitTeam(unitId)
-	local unfiltered = Spring.GetTeamUnitsByDefs(teamId, {UnitDefNames["armbox"].id, UnitDefNames["armllt"].id} )
+	local unfiltered = Spring.GetTeamUnitsByDefs(teamId, {UnitDefNames["armbox"].id, UnitDefNames["armmllt"].id} )
 
 	
 	-- filter out any units inside the safe zone

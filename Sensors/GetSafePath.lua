@@ -19,7 +19,7 @@ local mapSizeX = Game.mapSizeX;
 local mapSizeZ = Game.mapSizeZ;
 local lastEnemyUnit = nil; --last enemy unit that caused a point to be unsafe (speeds up calculation of adjacent tiles)
 local dangerRangeForUnknownUnit = 900
-local maxNodesPerStep = 500;
+local maxNodesPerStep = 2000;
 local mayWaypointsGeneratedPerStep = 3000; --setting this too low makes the generation take too long, but reduces freezes
 
 -- speedups
@@ -118,6 +118,9 @@ end
 
 -- Round to nearest multiple, assuming positive integers
 function roundToMultiple(value, multiple)
+if value <0 then value = 0 end
+
+
 	local remainder = value % multiple;
 	if(remainder>multiple/2) then
 		return value + (multiple-remainder) -- round ups

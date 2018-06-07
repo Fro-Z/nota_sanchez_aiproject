@@ -1,5 +1,20 @@
 {
-	"additionalNodes": [],
+	"additionalNodes": [ {
+		"children": [],
+		"id": "72CCDwphRL7pgFvFmN6grL8OnodSZnlp",
+		"nodeType": "luaCommand",
+		"parameters": [ {
+			"name": "dist",
+			"value": "{x = -safeRadius*1, z = safeRadius*1}"
+		}, {
+			"name": "fight",
+			"value": "false"
+		}, {
+			"name": "scriptName",
+			"value": "Common.relativeMove"
+		} ],
+		"scriptName": "Common.relativeMove"
+	} ],
 	"additionalParameters": {
 		"root": {
 			"height": 134,
@@ -46,6 +61,13 @@
 			"width": 291,
 			"x": 1167,
 			"y": 706
+		},
+		"72CCDwphRL7pgFvFmN6grL8OnodSZnlp": {
+			"height": 90,
+			"title": "Common.relativeMove",
+			"width": 311,
+			"x": 1491,
+			"y": 1147
 		},
 		"7kqD5rUdRNqu3tdJyE4Y9pzKdhWkDbYa": {
 			"height": 94,
@@ -123,13 +145,6 @@
 			"width": 232,
 			"x": 856,
 			"y": 317
-		},
-		"tHTeqUJn0kj74HXso0kcVQStOkU6a9Sz": {
-			"height": 90,
-			"title": "Common.move",
-			"width": 460,
-			"x": 1480,
-			"y": 1138
 		},
 		"xdz0NDtCMaFLzKsUoe0OynvNUZ1V8Gec": {
 			"height": 94,
@@ -331,21 +346,6 @@
 							"value": "store"
 						} ],
 						"scriptName": "store"
-					}, {
-						"children": [],
-						"id": "tHTeqUJn0kj74HXso0kcVQStOkU6a9Sz",
-						"nodeType": "luaCommand",
-						"parameters": [ {
-							"name": "pos",
-							"value": "{x = randomPoint[\"x\"] - safeRadius*1.2, z = randomPoint[\"z\"]}"
-						}, {
-							"name": "fight",
-							"value": "false"
-						}, {
-							"name": "scriptName",
-							"value": "Common.move"
-						} ],
-						"scriptName": "Common.move"
 					} ],
 					"id": "l8sG0rZhPIveUl2jTZmn5Lzpjh2aayMF",
 					"nodeType": "sequence",

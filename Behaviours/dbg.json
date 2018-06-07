@@ -140,7 +140,7 @@
 		"4Kjyq08CRocAGhdDUisRayl2oNhSf9bV": {
 			"height": 74,
 			"title": "echo",
-			"width": 325,
+			"width": 366,
 			"x": 469,
 			"y": -162
 		},
@@ -219,7 +219,7 @@
 			"nodeType": "luaCommand",
 			"parameters": [ {
 				"name": "msg",
-				"value": "GetUnitContinent(22116)"
+				"value": "1"
 			}, {
 				"name": "scriptName",
 				"value": "echo"
